@@ -1,0 +1,422 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>SaveBhai – Video Downloader & Status Saver for Android</title>
+  <meta name="description" content="SaveBhai is a free Android app to download videos from YouTube, Instagram, TikTok, Facebook, X and 1000+ sites, save WhatsApp statuses, and watch in a built-in player with Picture-in-Picture." />
+  <meta name="theme-color" content="#4f46e5" />
+  <link rel="icon" type="image/png" href="assets/logo.png" />
+
+  <!-- Open Graph / social preview -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="SaveBhai – Video Downloader & Status Saver" />
+  <meta property="og:description" content="Download videos from 1000+ sites, save WhatsApp statuses and watch offline. Free for Android." />
+  <meta property="og:image" content="assets/logo.png" />
+  <meta name="twitter:card" content="summary" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <script src="https://cdn.tailwindcss.com/3.4.16"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'media',
+      theme: {
+        extend: {
+          fontFamily: { sans: ['"Plus Jakarta Sans"', 'ui-sans-serif', 'system-ui', 'sans-serif'] },
+          colors: {
+            brand: { 50:'#eef2ff',100:'#e0e7ff',200:'#c7d2fe',400:'#818cf8',500:'#6366f1',600:'#4f46e5',700:'#4338ca',900:'#1e1b4b' },
+            wa: '#25d366'
+          }
+        }
+      }
+    }
+  </script>
+  <script src="https://unpkg.com/lucide@0.468.0/dist/umd/lucide.min.js"></script>
+  <style>
+    html { scroll-behavior: smooth; }
+    .grad-text { background: linear-gradient(90deg,#6366f1,#a855f7 50%,#ec4899); -webkit-background-clip: text; background-clip: text; color: transparent; }
+    .grad-bg { background: linear-gradient(135deg,#6366f1 0%,#a855f7 55%,#ec4899 100%); }
+    .phone { border-radius: 2.25rem; box-shadow: 0 30px 60px -20px rgba(79,70,229,.45), 0 0 0 10px #0f0f1a; }
+    details > summary { list-style: none; }
+    details > summary::-webkit-details-marker { display: none; }
+    details[open] .chev { transform: rotate(180deg); }
+  </style>
+</head>
+<body class="bg-slate-50 text-slate-800 dark:bg-[#0b0b14] dark:text-slate-200 font-sans antialiased">
+
+  <!-- ============ NAV ============ -->
+  <header class="sticky top-0 z-50 backdrop-blur bg-white/75 dark:bg-[#0b0b14]/75 border-b border-slate-200/70 dark:border-white/10">
+    <nav class="max-w-6xl mx-auto px-4 h-16 flex items-center justify-between">
+      <a href="#" class="flex items-center gap-2.5 font-extrabold text-lg">
+        <img src="assets/logo.png" alt="" class="w-9 h-9 rounded-xl" />
+        SaveBhai
+      </a>
+      <div class="hidden md:flex items-center gap-7 text-sm font-medium text-slate-600 dark:text-slate-300">
+        <a href="#features" class="hover:text-brand-600">Features</a>
+        <a href="#status" class="hover:text-brand-600">Status Saver</a>
+        <a href="#screens" class="hover:text-brand-600">Screenshots</a>
+        <a href="#install" class="hover:text-brand-600">Install</a>
+        <a href="#faq" class="hover:text-brand-600">FAQ</a>
+      </div>
+      <a href="#" data-download class="inline-flex items-center gap-2 rounded-xl grad-bg text-white text-sm font-semibold px-4 py-2 shadow-lg shadow-brand-500/30 hover:opacity-95">
+        <i data-lucide="download" class="w-4 h-4"></i><span class="hidden sm:inline">Download APK</span><span class="sm:hidden">Get</span>
+      </a>
+    </nav>
+  </header>
+
+  <main>
+    <!-- ============ HERO ============ -->
+    <section class="relative overflow-hidden">
+      <div class="absolute -top-40 -right-32 w-[34rem] h-[34rem] rounded-full grad-bg opacity-20 blur-3xl"></div>
+      <div class="absolute -bottom-40 -left-32 w-[28rem] h-[28rem] rounded-full bg-wa opacity-10 blur-3xl"></div>
+      <div class="relative max-w-6xl mx-auto px-4 pt-14 pb-20 md:pt-20 grid md:grid-cols-2 gap-12 items-center">
+        <div>
+          <span class="inline-flex items-center gap-2 rounded-full bg-brand-50 dark:bg-white/5 border border-brand-100 dark:border-white/10 text-brand-700 dark:text-brand-200 text-xs font-semibold px-3 py-1">
+            <i data-lucide="sparkles" class="w-3.5 h-3.5"></i> Free · No account · No login
+          </span>
+          <h1 class="mt-5 text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-[1.05]">
+            Save videos from <span class="grad-text">almost any website</span>
+          </h1>
+          <p class="mt-5 text-lg text-slate-600 dark:text-slate-400 max-w-xl">
+            SaveBhai downloads videos, Shorts, Reels and audio from YouTube, Instagram, TikTok, Facebook, X and 1000+ sites, saves WhatsApp statuses, and plays everything in a built-in player with Picture-in-Picture.
+          </p>
+          <div class="mt-8 flex flex-col sm:flex-row gap-3">
+            <a href="#" data-download class="inline-flex justify-center items-center gap-2 rounded-2xl grad-bg text-white font-bold px-6 py-4 shadow-xl shadow-brand-500/30 hover:opacity-95">
+              <i data-lucide="download" class="w-5 h-5"></i> Download for Android
+            </a>
+            <a href="#features" class="inline-flex justify-center items-center gap-2 rounded-2xl border border-slate-300 dark:border-white/15 font-semibold px-6 py-4 hover:bg-white dark:hover:bg-white/5">
+              Explore features <i data-lucide="arrow-down" class="w-4 h-4"></i>
+            </a>
+          </div>
+          <p class="mt-4 text-sm text-slate-500 dark:text-slate-500 flex flex-wrap gap-x-4 gap-y-1">
+            <span class="inline-flex items-center gap-1.5"><i data-lucide="smartphone" class="w-4 h-4"></i>Android 7.0+</span>
+            <span class="inline-flex items-center gap-1.5"><i data-lucide="tag" class="w-4 h-4"></i><span data-version>Latest release</span></span>
+            <span class="inline-flex items-center gap-1.5"><i data-lucide="shield-check" class="w-4 h-4"></i>No ads, no trackers</span>
+          </p>
+        </div>
+        <div class="flex justify-center md:justify-end gap-5">
+          <img src="assets/screens/home.jpg" alt="SaveBhai home screen with link input" class="phone w-56 sm:w-64 rotate-[-4deg] translate-y-4" />
+          <img src="assets/screens/player.jpg" alt="Built-in video player" class="phone w-56 sm:w-64 rotate-[4deg] -translate-y-2 hidden sm:block" />
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ PLATFORMS ============ -->
+    <section class="border-y border-slate-200 dark:border-white/10 bg-white dark:bg-white/[.02]">
+      <div class="max-w-6xl mx-auto px-4 py-10">
+        <p class="text-center text-sm font-semibold uppercase tracking-wider text-slate-500">Works with 1000+ sites, including</p>
+        <div id="platforms" class="mt-6 flex flex-wrap justify-center gap-2.5"></div>
+      </div>
+    </section>
+
+    <!-- ============ HIGHLIGHTS ============ -->
+    <section class="max-w-6xl mx-auto px-4 py-16 grid grid-cols-2 md:grid-cols-4 gap-4">
+      <div class="rounded-2xl bg-white dark:bg-white/5 border border-slate-200 dark:border-white/10 p-5 text-center">
+        <div class="text-3xl font-extrabold grad-text">1000+</div><div class="text-sm text-slate-500 mt-1">Supported sites</div>
+      </div>
+      <div class="rounded-2xl bg-white dark:bg-white/5 border border-slate-200 dark:border-white/10 p-5 text-center">
+        <div class="text-3xl font-extrabold grad-text">1080p</div><div class="text-sm text-slate-500 mt-1">Quality + MP3 audio</div>
+      </div>
+      <div class="rounded-2xl bg-white dark:bg-white/5 border border-slate-200 dark:border-white/10 p-5 text-center">
+        <div class="text-3xl font-extrabold grad-text">5×</div><div class="text-sm text-slate-500 mt-1">Parallel downloads</div>
+      </div>
+      <div class="rounded-2xl bg-white dark:bg-white/5 border border-slate-200 dark:border-white/10 p-5 text-center">
+        <div class="text-3xl font-extrabold grad-text">₹0</div><div class="text-sm text-slate-500 mt-1">Free, no sign-up</div>
+      </div>
+    </section>
+
+    <!-- ============ FEATURES ============ -->
+    <section id="features" class="max-w-6xl mx-auto px-4 pb-8">
+      <div class="text-center max-w-2xl mx-auto">
+        <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight">Everything SaveBhai can do</h2>
+        <p class="mt-3 text-slate-600 dark:text-slate-400">Every feature in the app, grouped by what you're trying to do.</p>
+      </div>
+      <!-- Feature groups are rendered from the FEATURES list in the script below. -->
+      <div id="feature-groups" class="mt-12 space-y-14"></div>
+    </section>
+
+    <!-- ============ STATUS SAVER SPOTLIGHT ============ -->
+    <section id="status" class="mt-16 bg-emerald-50 dark:bg-emerald-500/[.06] border-y border-emerald-100 dark:border-emerald-500/10">
+      <div class="max-w-6xl mx-auto px-4 py-16 grid md:grid-cols-2 gap-12 items-center">
+        <div class="order-2 md:order-1 flex justify-center gap-5">
+          <img src="assets/screens/status.jpg" alt="WhatsApp Status Saver screen" class="phone w-52 sm:w-60" />
+          <img src="assets/screens/directchat.jpg" alt="Direct Chat sheet" class="phone w-52 sm:w-60 hidden sm:block translate-y-8" />
+        </div>
+        <div class="order-1 md:order-2">
+          <span class="inline-flex items-center gap-2 rounded-full bg-wa/15 text-emerald-700 dark:text-emerald-300 text-xs font-bold px-3 py-1">
+            <i data-lucide="message-circle" class="w-3.5 h-3.5"></i> WhatsApp tools
+          </span>
+          <h2 class="mt-4 text-3xl sm:text-4xl font-extrabold tracking-tight">Never lose a status again</h2>
+          <p class="mt-4 text-slate-600 dark:text-slate-400">Statuses disappear after 24 hours. SaveBhai lets you keep the photos and videos you've already viewed, for both WhatsApp and WhatsApp Business.</p>
+          <ul class="mt-6 space-y-3 text-sm">
+            <li class="flex gap-3"><i data-lucide="check-circle-2" class="w-5 h-5 text-wa shrink-0"></i><span><b>Save one, select many, or Save All</b> (with a confirmation so nothing is saved by accident)</span></li>
+            <li class="flex gap-3"><i data-lucide="check-circle-2" class="w-5 h-5 text-wa shrink-0"></i><span><b>Repost</b> a status straight back to WhatsApp, or share it anywhere</span></li>
+            <li class="flex gap-3"><i data-lucide="check-circle-2" class="w-5 h-5 text-wa shrink-0"></i><span><b>Saved tab</b> to browse, multi-select and delete what you kept</span></li>
+            <li class="flex gap-3"><i data-lucide="check-circle-2" class="w-5 h-5 text-wa shrink-0"></i><span><b>Direct Chat:</b> message any number without saving it to contacts</span></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ SCREENSHOTS ============ -->
+    <section id="screens" class="max-w-6xl mx-auto px-4 py-20">
+      <div class="text-center max-w-2xl mx-auto">
+        <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight">See it in action</h2>
+        <p class="mt-3 text-slate-600 dark:text-slate-400">Real screenshots from the app.</p>
+      </div>
+      <div class="mt-10 flex gap-6 overflow-x-auto pb-6 snap-x snap-mandatory [scrollbar-width:thin]">
+        <figure class="snap-center shrink-0 w-56 text-center"><img loading="lazy" src="assets/screens/home.jpg" alt="Home screen" class="phone w-full" /><figcaption class="mt-5 text-sm font-semibold">Paste &amp; find</figcaption></figure>
+        <figure class="snap-center shrink-0 w-56 text-center"><img loading="lazy" src="assets/screens/bubble.jpg" alt="Quick download bubble" class="phone w-full" /><figcaption class="mt-5 text-sm font-semibold">Quick download bubble</figcaption></figure>
+        <figure class="snap-center shrink-0 w-56 text-center"><img loading="lazy" src="assets/screens/gallery.jpg" alt="Media gallery" class="phone w-full" /><figcaption class="mt-5 text-sm font-semibold">Media gallery</figcaption></figure>
+        <figure class="snap-center shrink-0 w-56 text-center"><img loading="lazy" src="assets/screens/player.jpg" alt="Video player" class="phone w-full" /><figcaption class="mt-5 text-sm font-semibold">Built-in player</figcaption></figure>
+        <figure class="snap-center shrink-0 w-56 text-center"><img loading="lazy" src="assets/screens/pip.jpg" alt="Picture-in-Picture" class="phone w-full" /><figcaption class="mt-5 text-sm font-semibold">Picture-in-Picture</figcaption></figure>
+        <figure class="snap-center shrink-0 w-56 text-center"><img loading="lazy" src="assets/screens/status.jpg" alt="Status saver" class="phone w-full" /><figcaption class="mt-5 text-sm font-semibold">Status Saver</figcaption></figure>
+        <figure class="snap-center shrink-0 w-56 text-center"><img loading="lazy" src="assets/screens/directchat.jpg" alt="Direct chat" class="phone w-full" /><figcaption class="mt-5 text-sm font-semibold">Direct Chat</figcaption></figure>
+        <figure class="snap-center shrink-0 w-56 text-center"><img loading="lazy" src="assets/screens/settings.jpg" alt="Settings" class="phone w-full" /><figcaption class="mt-5 text-sm font-semibold">Settings</figcaption></figure>
+      </div>
+    </section>
+
+    <!-- ============ HOW IT WORKS ============ -->
+    <section class="bg-white dark:bg-white/[.02] border-y border-slate-200 dark:border-white/10">
+      <div class="max-w-6xl mx-auto px-4 py-16">
+        <h2 class="text-center text-3xl sm:text-4xl font-extrabold tracking-tight">Three taps to save a video</h2>
+        <div class="mt-10 grid md:grid-cols-3 gap-6">
+          <div class="rounded-2xl p-6 bg-slate-50 dark:bg-white/5 border border-slate-200 dark:border-white/10">
+            <div class="w-10 h-10 rounded-xl grad-bg text-white font-bold grid place-items-center">1</div>
+            <h3 class="mt-4 font-bold text-lg">Copy or share a link</h3>
+            <p class="mt-1.5 text-sm text-slate-600 dark:text-slate-400">In YouTube, Instagram, TikTok or any site, tap <b>Share → Copy link</b>, or <b>Share → SaveBhai</b> to skip copying.</p>
+          </div>
+          <div class="rounded-2xl p-6 bg-slate-50 dark:bg-white/5 border border-slate-200 dark:border-white/10">
+            <div class="w-10 h-10 rounded-xl grad-bg text-white font-bold grid place-items-center">2</div>
+            <h3 class="mt-4 font-bold text-lg">Pick a quality</h3>
+            <p class="mt-1.5 text-sm text-slate-600 dark:text-slate-400">SaveBhai finds every available format: best, 1080p, 720p, 480p or audio-only MP3.</p>
+          </div>
+          <div class="rounded-2xl p-6 bg-slate-50 dark:bg-white/5 border border-slate-200 dark:border-white/10">
+            <div class="w-10 h-10 rounded-xl grad-bg text-white font-bold grid place-items-center">3</div>
+            <h3 class="mt-4 font-bold text-lg">Download &amp; enjoy</h3>
+            <p class="mt-1.5 text-sm text-slate-600 dark:text-slate-400">It downloads in the background. Watch it in the app, in Picture-in-Picture, or in your phone's gallery.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ INSTALL ============ -->
+    <section id="install" class="max-w-6xl mx-auto px-4 py-20 grid md:grid-cols-2 gap-12">
+      <div>
+        <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight">How to install</h2>
+        <p class="mt-3 text-slate-600 dark:text-slate-400">SaveBhai is distributed as an APK, outside the Play Store. Installing takes under a minute.</p>
+        <ol class="mt-8 space-y-5">
+          <li class="flex gap-4"><span class="w-8 h-8 shrink-0 rounded-full bg-brand-100 dark:bg-brand-500/20 text-brand-700 dark:text-brand-200 font-bold grid place-items-center">1</span><div><b>Download the APK</b><p class="text-sm text-slate-600 dark:text-slate-400">Tap <i>Download APK</i> on this page from your Android phone.</p></div></li>
+          <li class="flex gap-4"><span class="w-8 h-8 shrink-0 rounded-full bg-brand-100 dark:bg-brand-500/20 text-brand-700 dark:text-brand-200 font-bold grid place-items-center">2</span><div><b>Open the file</b><p class="text-sm text-slate-600 dark:text-slate-400">Open it from your notifications or the Downloads folder.</p></div></li>
+          <li class="flex gap-4"><span class="w-8 h-8 shrink-0 rounded-full bg-brand-100 dark:bg-brand-500/20 text-brand-700 dark:text-brand-200 font-bold grid place-items-center">3</span><div><b>Allow "Install unknown apps"</b><p class="text-sm text-slate-600 dark:text-slate-400">If asked, tap <i>Settings</i> and allow your browser to install apps, then go back.</p></div></li>
+          <li class="flex gap-4"><span class="w-8 h-8 shrink-0 rounded-full bg-brand-100 dark:bg-brand-500/20 text-brand-700 dark:text-brand-200 font-bold grid place-items-center">4</span><div><b>Tap Install</b><p class="text-sm text-slate-600 dark:text-slate-400">Open SaveBhai and allow notifications so you can see download progress.</p></div></li>
+        </ol>
+        <p class="mt-6 text-sm text-slate-500 flex gap-2"><i data-lucide="info" class="w-4 h-4 shrink-0 mt-0.5"></i>To update, download the newer APK and install it over the old one. Your downloads are kept.</p>
+      </div>
+      <div class="rounded-3xl grad-bg p-[1px] self-start">
+        <div class="rounded-3xl bg-white dark:bg-[#12121f] p-7">
+          <h3 class="font-bold text-lg flex items-center gap-2"><i data-lucide="cpu" class="w-5 h-5 text-brand-500"></i>Requirements</h3>
+          <dl class="mt-5 divide-y divide-slate-200 dark:divide-white/10 text-sm">
+            <div class="py-3 flex justify-between gap-4"><dt class="text-slate-500">Android version</dt><dd class="font-semibold text-right">7.0 (Nougat) or newer</dd></div>
+            <div class="py-3 flex justify-between gap-4"><dt class="text-slate-500">Processor</dt><dd class="font-semibold text-right">arm64-v8a, armeabi-v7a, x86_64</dd></div>
+            <div class="py-3 flex justify-between gap-4"><dt class="text-slate-500">Internet</dt><dd class="font-semibold text-right">Wi-Fi or mobile data</dd></div>
+            <div class="py-3 flex justify-between gap-4"><dt class="text-slate-500">Account</dt><dd class="font-semibold text-right">Not needed</dd></div>
+            <div class="py-3 flex justify-between gap-4"><dt class="text-slate-500">Price</dt><dd class="font-semibold text-right">Free</dd></div>
+          </dl>
+          <h3 class="mt-7 font-bold text-lg flex items-center gap-2"><i data-lucide="key-round" class="w-5 h-5 text-brand-500"></i>Permissions &amp; why</h3>
+          <ul class="mt-4 space-y-2.5 text-sm text-slate-600 dark:text-slate-400">
+            <li><b class="text-slate-800 dark:text-slate-200">Notifications</b> – download progress and pause / cancel / retry buttons</li>
+            <li><b class="text-slate-800 dark:text-slate-200">Photos, videos &amp; audio</b> – show files you downloaded before a reinstall</li>
+            <li><b class="text-slate-800 dark:text-slate-200">Folder access (you choose)</b> – read WhatsApp statuses, only if you use Status Saver</li>
+            <li><b class="text-slate-800 dark:text-slate-200">Internet</b> – find and download videos</li>
+          </ul>
+          <a href="#" data-download class="mt-7 w-full inline-flex justify-center items-center gap-2 rounded-xl grad-bg text-white font-bold px-5 py-3.5">
+            <i data-lucide="download" class="w-5 h-5"></i> Download APK
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ FAQ ============ -->
+    <section id="faq" class="bg-white dark:bg-white/[.02] border-t border-slate-200 dark:border-white/10">
+      <div class="max-w-3xl mx-auto px-4 py-20">
+        <h2 class="text-center text-3xl sm:text-4xl font-extrabold tracking-tight">Questions</h2>
+        <div id="faq-list" class="mt-10 space-y-3"></div>
+      </div>
+    </section>
+
+    <!-- ============ CTA ============ -->
+    <section class="max-w-6xl mx-auto px-4 py-20">
+      <div class="rounded-[2rem] grad-bg px-6 py-14 text-center text-white relative overflow-hidden">
+        <img src="assets/logo.png" alt="" class="w-16 h-16 rounded-2xl mx-auto shadow-xl" />
+        <h2 class="mt-5 text-3xl sm:text-4xl font-extrabold tracking-tight">Ready to save your first video?</h2>
+        <p class="mt-3 text-white/85 max-w-xl mx-auto">Free, no account, and it works with the apps you already use.</p>
+        <a href="#" data-download class="mt-8 inline-flex items-center gap-2 rounded-2xl bg-white text-brand-700 font-bold px-7 py-4 shadow-xl hover:bg-brand-50">
+          <i data-lucide="download" class="w-5 h-5"></i> Download SaveBhai
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="border-t border-slate-200 dark:border-white/10">
+    <div class="max-w-6xl mx-auto px-4 py-10 grid md:grid-cols-3 gap-8 text-sm">
+      <div>
+        <div class="flex items-center gap-2.5 font-extrabold text-base"><img src="assets/logo.png" alt="" class="w-8 h-8 rounded-lg" />SaveBhai</div>
+        <p class="mt-3 text-slate-500">Video downloader &amp; WhatsApp status saver for Android. Built by Substring Technologies.</p>
+      </div>
+      <div class="flex flex-col gap-2 text-slate-600 dark:text-slate-400">
+        <a href="#features" class="hover:text-brand-600">Features</a>
+        <a href="#install" class="hover:text-brand-600">Install guide</a>
+        <a href="#" data-releases class="hover:text-brand-600">All releases &amp; changelog</a>
+      </div>
+      <p class="text-xs leading-relaxed text-slate-500">
+        <b>Disclaimer:</b> SaveBhai is an independent app and is not affiliated with, endorsed by or sponsored by YouTube, Google, Instagram, Facebook, Meta, WhatsApp, TikTok, X or any other service named here. All trademarks belong to their owners. Only download content you own or have permission to save, and respect each platform's terms and copyright law.
+      </p>
+    </div>
+    <p class="text-center text-xs text-slate-400 pb-8">© <span id="year"></span> SaveBhai</p>
+  </footer>
+
+  <script>
+    // ---- Public repo that hosts this site and the APK releases (the app's source repo stays private) ----
+    const REPO = 'substring-projects/SaveBhai-Download';
+    const RELEASES_URL = `https://github.com/${REPO}/releases`;
+    const LATEST_URL = `${RELEASES_URL}/latest`;
+
+    const PLATFORMS = [
+      ['YouTube','#ff0033'],['YouTube Shorts','#ff0033'],['Instagram','#e1306c'],['TikTok','#25f4ee'],['Facebook','#1877f2'],
+      ['X / Twitter','#1d9bf0'],['Reddit','#ff4500'],['Vimeo','#1ab7ea'],['Dailymotion','#0066dc'],['Pinterest','#e60023'],
+      ['Twitch','#9146ff'],['Snapchat','#ffc300'],['Threads','#8e8e93'],['LinkedIn','#0a66c2'],['SoundCloud','#ff5500'],
+      ['Bilibili','#00a1d6'],['Any website','#8b5cf6']
+    ];
+
+    // Every feature in the app, grouped. [icon, title, description]
+    const FEATURES = [
+      { id:'download', title:'Download from anywhere', icon:'globe', color:'from-indigo-500 to-violet-500', items:[
+        ['link','1000+ supported sites','YouTube videos & Shorts, Instagram Reels & posts, TikTok, Facebook, X, Reddit, Vimeo and many more, powered by the yt-dlp engine.'],
+        ['images','Instagram carousels','Posts with several photos or videos are shown as separate items so you can pick exactly what to save.'],
+        ['file-video','Any web page or direct link','Finds HTML5 and OpenGraph videos on ordinary web pages, and downloads direct .mp4, .webm, .mp3, image and streaming (m3u8) links.'],
+        ['sliders-horizontal','Choose your quality','See every available format with its file size: best, 1080p, 720p or 480p.'],
+        ['music','Audio only (MP3)','Turn any video into an MP3 in one tap: great for songs, podcasts and lectures.'],
+        ['star','Default quality preference','Set a favourite quality once and it’s pre-selected for every download.'],
+        ['copy-check','Duplicate protection','Warns you if a link is already downloaded or already in the queue, so you don’t save it twice by accident.'],
+        ['external-link','Open original page','Jump back to the source post or video from the result or from your gallery.'],
+      ]},
+      { id:'quick', title:'Fastest ways to start a download', icon:'zap', color:'from-amber-500 to-pink-500', items:[
+        ['share-2','Share → SaveBhai','Tap Share in YouTube, Instagram, Chrome or any app and pick SaveBhai: the link is analyzed instantly.'],
+        ['clipboard-paste','Clipboard auto-paste','Copied a link? It’s pasted into the box automatically when you open the app (can be turned off).'],
+        ['message-square-plus','Quick download bubble','Come back to SaveBhai with a link copied and a card pops up: “Instagram link copied · Download”. Each link is offered once.'],
+        ['layout-grid','Quick Settings tile','Add the “SaveBhai Download” tile to your notification shade: copy a link, pull down, tap, done.'],
+        ['clipboard','One-tap paste button','A paste button next to the link box pastes and analyzes in a single tap.'],
+      ]},
+      { id:'manager', title:'Powerful download manager', icon:'download-cloud', color:'from-sky-500 to-indigo-500', items:[
+        ['moon','Downloads in the background','Keep using your phone or lock it: downloads continue, with live progress in the notification bar.'],
+        ['bell-ring','Notification controls','Pause, cancel or retry a download straight from its notification.'],
+        ['pause-circle','Pause, resume & restart','Control each download, or pause / resume all of them at once.'],
+        ['layers','Up to 5 parallel downloads','Choose how many downloads run at the same time (1–5); the rest wait in a queue.'],
+        ['list-ordered','Download next','Move any queued item to the front of the line.'],
+        ['wifi','Wi-Fi only mode','Save mobile data: downloads wait until you’re on Wi-Fi.'],
+        ['refresh-cw','Auto-resume after network loss','Goes offline? Downloads pause and continue automatically when you reconnect.'],
+        ['rotate-ccw','Retry all failed','Retry every failed download in one tap, with clear error messages for each.'],
+        ['wrench','Self-updating engine','The download engine updates itself every few days so sites that change keep working.'],
+      ]},
+      { id:'gallery', title:'Media gallery', icon:'folder-open', color:'from-fuchsia-500 to-rose-500', items:[
+        ['layout-dashboard','Gallery, Active, Completed, Failed','Four tabs to see what’s done, downloading or needs attention.'],
+        ['filter','Filter by type','Show all media, or only videos, audio or photos.'],
+        ['search','Search','Find any downloaded file by name.'],
+        ['grid-3x3','Grid or list view','Thumbnails in a grid, or a detailed list with size and quality.'],
+        ['check-square','Multi-select','Select several files to share or delete together.'],
+        ['send','Share, open with, copy link','Share files to any app, open them in another player, or copy the original link.'],
+        ['trash-2','Safe delete & tidy lists','Delete files with Android’s confirmation, or clear the history lists while keeping your files.'],
+        ['hard-drive','Saved to your phone gallery','Files go to Movies, Music and Pictures folders so they also appear in Google Photos and your file manager.'],
+      ]},
+      { id:'player', title:'Built-in player & Picture-in-Picture', icon:'play-circle', color:'from-violet-500 to-purple-600', items:[
+        ['picture-in-picture-2','Picture-in-Picture','Pop the video into a floating window and keep watching while you use other apps, with rewind, play/pause and forward buttons.'],
+        ['home','Auto PiP on Home','Press Home while a video plays and it shrinks into PiP automatically.'],
+        ['gauge','Playback speed','0.5×, 0.75×, 1×, 1.25×, 1.5× or 2×.'],
+        ['fast-forward','Double-tap to seek','Double-tap left or right to jump 10 seconds back or forward.'],
+        ['maximize','Fit or fill the screen','Switch between showing the whole video and filling the screen.'],
+        ['volume-2','Mute & seek bar','Mute in one tap and scrub anywhere in the video.'],
+        ['disc-3','Audio player','MP3s play with a spinning-record visual.'],
+      ]},
+      { id:'wa', title:'WhatsApp Status Saver & Direct Chat', icon:'message-circle', color:'from-emerald-500 to-green-600', items:[
+        ['users','WhatsApp & WhatsApp Business','Separate tabs for statuses from both apps.'],
+        ['eye','Preview photos & videos','Open any status full-screen before saving it.'],
+        ['download','Save one, many or all','Save a single status, select several, or Save All with a confirmation showing how many photos and videos.'],
+        ['badge-check','Saved markers','Statuses you’ve already saved show a check mark.'],
+        ['repeat','Repost & share','Send a status back to WhatsApp to post it, or share it to any app.'],
+        ['archive','Saved tab with delete','Browse everything you saved, then select and delete what you don’t need.'],
+        ['folder-key','Guided folder permission','Step-by-step help to grant access to the status folder, with tips for when “Use this folder” is greyed out.'],
+        ['message-square','Direct Chat','Message any number without saving it: pick a country code, type the number and an optional message, and open it in WhatsApp or WhatsApp Business.'],
+      ]},
+      { id:'settings', title:'Personalize & stay in control', icon:'settings-2', color:'from-slate-500 to-slate-700', items:[
+        ['sun-moon','Light, dark or system theme','Matches your phone automatically, or pick one yourself.'],
+        ['pie-chart','Storage usage','See how much space your downloads use and where they’re saved.'],
+        ['eraser','Clear cache','Free up temporary files in one tap.'],
+        ['toggle-right','Feature switches','Turn clipboard auto-paste, the quick download bubble, Wi-Fi only and engine auto-update on or off.'],
+        ['user-x','No account, no login','Nothing to sign up for. Your downloads stay on your phone.'],
+      ]},
+    ];
+
+    const FAQ = [
+      ['Is SaveBhai free?','Yes. It’s free to download and use, with no account or sign-up.'],
+      ['Why isn’t it on the Google Play Store?','Google Play doesn’t allow apps that download videos from YouTube and some other platforms, so SaveBhai is distributed as an APK from this site and GitHub instead.'],
+      ['Is it safe to install an APK?','Only install APKs from sources you trust. Download SaveBhai from this page or the official GitHub releases, not from re-uploads on other sites.'],
+      ['Where are my downloads saved?','Videos go to Movies/VideoDownloader, audio to the Music folder, and saved statuses to Pictures/WhatsApp Statuses and Movies/WhatsApp Statuses. They show up in your phone’s gallery too.'],
+      ['A video won’t download. What can I do?','Make sure the post is public, then tap Retry. Sites change often; the download engine updates itself every few days, and you can update SaveBhai from the releases page for more fixes.'],
+      ['Why does Status Saver ask for folder access?','Android only lets apps read WhatsApp’s status folder if you grant access to it yourself. SaveBhai only reads that folder, and only when you use Status Saver.'],
+      ['I see “Use this folder” greyed out. What now?','Android blocks choosing the storage root. Open Android → media → com.whatsapp → WhatsApp → Media, then tap “Use this folder”. The app shows these steps too.'],
+      ['Does Picture-in-Picture work on my phone?','PiP needs Android 8.0 or newer and must be allowed for SaveBhai in your phone’s settings (Apps → SaveBhai → Picture-in-picture).'],
+      ['How do I update the app?','Download the newest APK from this page and install it over the current one. Your downloads and settings are kept.'],
+    ];
+
+    const $ = (s, el = document) => el.querySelector(s);
+    const esc = s => s.replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+
+    $('#platforms').innerHTML = PLATFORMS.map(([n, c]) =>
+      `<span class="inline-flex items-center gap-2 rounded-full bg-slate-100 dark:bg-white/5 border border-slate-200 dark:border-white/10 px-3.5 py-1.5 text-sm font-semibold">
+         <span class="w-2 h-2 rounded-full" style="background:${c}"></span>${esc(n)}</span>`).join('');
+
+    $('#feature-groups').innerHTML = FEATURES.map(g => `
+      <div id="f-${g.id}">
+        <div class="flex items-center gap-3">
+          <span class="w-11 h-11 rounded-2xl bg-gradient-to-br ${g.color} text-white grid place-items-center shadow-lg"><i data-lucide="${g.icon}" class="w-5 h-5"></i></span>
+          <h3 class="text-2xl font-extrabold tracking-tight">${esc(g.title)}</h3>
+        </div>
+        <div class="mt-6 grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+          ${g.items.map(([icon, t, d]) => `
+            <div class="group rounded-2xl bg-white dark:bg-white/5 border border-slate-200 dark:border-white/10 p-5 hover:border-brand-400 dark:hover:border-brand-400/50 hover:shadow-lg hover:shadow-brand-500/5 transition">
+              <i data-lucide="${icon}" class="w-5 h-5 text-brand-600 dark:text-brand-400"></i>
+              <h4 class="mt-3 font-bold">${esc(t)}</h4>
+              <p class="mt-1 text-sm text-slate-600 dark:text-slate-400 leading-relaxed">${esc(d)}</p>
+            </div>`).join('')}
+        </div>
+      </div>`).join('');
+
+    $('#faq-list').innerHTML = FAQ.map(([q, a]) => `
+      <details class="group rounded-2xl bg-slate-50 dark:bg-white/5 border border-slate-200 dark:border-white/10 px-5 py-4">
+        <summary class="flex justify-between items-center gap-4 cursor-pointer font-semibold">${esc(q)}<i data-lucide="chevron-down" class="chev w-5 h-5 shrink-0 transition-transform"></i></summary>
+        <p class="mt-3 text-sm text-slate-600 dark:text-slate-400 leading-relaxed">${esc(a)}</p>
+      </details>`).join('');
+
+    document.querySelectorAll('[data-download]').forEach(a => a.href = LATEST_URL);
+    document.querySelectorAll('[data-releases]').forEach(a => a.href = RELEASES_URL);
+    $('#year').textContent = new Date().getFullYear();
+
+    // Point the buttons straight at the newest .apk and show its version (falls back to the releases page).
+    fetch(`https://api.github.com/repos/${REPO}/releases/latest`)
+      .then(r => r.ok ? r.json() : Promise.reject())
+      .then(rel => {
+        const apk = (rel.assets || []).find(a => a.name.endsWith('.apk'));
+        if (apk) document.querySelectorAll('[data-download]').forEach(a => a.href = apk.browser_download_url);
+        if (rel.tag_name) document.querySelectorAll('[data-version]').forEach(s => s.textContent = `Version ${rel.tag_name.replace(/^v/, '')}`);
+      })
+      .catch(() => {});
+
+    lucide.createIcons();
+  </script>
+</body>
+</html>
