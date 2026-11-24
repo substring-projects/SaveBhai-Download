@@ -364,6 +364,7 @@
     const FAQ = [
       ['Is SaveBhai free?','Yes. It’s free to download and use, with no account or sign-up.'],
       ['Why isn’t it on the Google Play Store?','Google Play doesn’t allow apps that download videos from YouTube and some other platforms, so SaveBhai is distributed as an APK from this site and GitHub instead.'],
+      ['Which APK should I download?','The Download button picks the right one for almost every phone (arm64-v8a). On the releases page: choose arm64-v8a for phones from 2017 onwards, armeabi-v7a for older or very low-cost phones, and x86_64 only for emulators and some Chromebooks. If one won’t install, try armeabi-v7a.'],
       ['Is it safe to install an APK?','Only install APKs from sources you trust. Download SaveBhai from this page or the official GitHub releases, not from re-uploads on other sites.'],
       ['Where are my downloads saved?','Videos go to Movies/VideoDownloader, audio to the Music folder, and saved statuses to Pictures/WhatsApp Statuses and Movies/WhatsApp Statuses. They show up in your phone’s gallery too.'],
       ['A video won’t download. What can I do?','Make sure the post is public, then tap Retry. Sites change often; the download engine updates itself every few days, and you can update SaveBhai from the releases page for more fixes.'],
@@ -410,7 +411,9 @@
     fetch(`https://api.github.com/repos/${REPO}/releases/latest`)
       .then(r => r.ok ? r.json() : Promise.reject())
       .then(rel => {
-        const apk = (rel.assets || []).find(a => a.name.endsWith('.apk'));
+        // Most phones are 64-bit ARM; fall back to any APK in the release.
+        const apks = (rel.assets || []).filter(a => a.name.endsWith('.apk'));
+        const apk = apks.find(a => a.name.includes('arm64')) || apks.find(a => !a.name.includes('x86')) || apks[0];
         if (apk) document.querySelectorAll('[data-download]').forEach(a => a.href = apk.browser_download_url);
         if (rel.tag_name) document.querySelectorAll('[data-version]').forEach(s => s.textContent = `Version ${rel.tag_name.replace(/^v/, '')}`);
       })
